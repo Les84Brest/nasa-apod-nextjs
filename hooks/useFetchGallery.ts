@@ -17,7 +17,6 @@ export default function useFetchGallery(start: string, end: string): FetchGaller
     const fetchPhotoData = async () => {
       setIsLoading(true);
       const url = `${window.location.origin}/api/image/gallery?start=${start}&end=${end}`;
-      console.log('url>> >>> ',url);
       
       const response = await axios.get(url);
       if (response.status === 200 ){        
