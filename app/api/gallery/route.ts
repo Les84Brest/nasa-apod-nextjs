@@ -1,14 +1,12 @@
 import { getApodImagesForPeriod } from "@/service/fetchApodImage";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
-export async function GET(req: Request): Promise<NextResponse> {
-
+export async function GET(req: NextRequest): Promise<NextResponse> {
     const { searchParams } = new URL(req.url);
-    const startDate = searchParams.get('start') || '';
-    const endDate = searchParams.get('end') || '';
+    const startDate = req.nextUrl.searchParams.get('start') || '';
+    const endDate = req.nextUrl.searchParams.get('end') || '';
 
     const galleryImages = await getApodImagesForPeriod(startDate, endDate);
     return NextResponse.json(galleryImages);
 
 }
-export const dynamic = 'force-static'

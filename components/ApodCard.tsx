@@ -9,9 +9,9 @@ interface ApodCardProps {
 
 export default function ApodCard({image}: ApodCardProps) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 340 }}>
       <CardMedia
-        sx={{ height: 140 }}
+        sx={{ height: 250 }}
         image={image.url}
         title="green iguana"
       />

@@ -12,10 +12,9 @@ import ApodCard from "./ApodCard";
 
 export const GalleryContent: FC = () => {
   const [startDate, setStartDate] = useState<Dayjs | null>(dayjs().subtract(30, 'day'));
-  const [endDate, setEndDate] = useState<Dayjs | null>(dayjs());
+  const [endDate, setEndDate] = useState<Dayjs | null>(dayjs().subtract(1, 'day'));
 
   const { isLoading, photoGallery } = useFetchGallery(formatDate(startDate), formatDate(endDate));
-  console.log('%cphoto gal', 'padding: 5px; background: DarkKhaki; color: Yellow;', photoGallery);
 
   const handleEndDateChange = (newValue: Dayjs | null) => setEndDate(newValue)
   const handleStartDateChange = (newValue: Dayjs | null) => setStartDate(newValue)

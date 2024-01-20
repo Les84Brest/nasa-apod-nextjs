@@ -11,21 +11,29 @@ type FetchGalleryReturn = {
 
 export default function useFetchGallery(start: string, end: string): FetchGalleryReturn {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [photoGallery, setPhoto] = useState<IDailyPhoto[] | null>(null);  
+  const [photoGallery, setPhoto] = useState<IDailyPhoto[] | null>(null);
 
-  useEffect(() => {    
+  useEffect(() => {
     const fetchPhotoData = async () => {
       setIsLoading(true);
-      const url = `${window.location.origin}/api/image/gallery?start=${start}&end=${end}`;
-      
-      const response = await axios.get(url);
-      if (response.status === 200 ){        
+
+      // const url = new URL('api/gallery', window.location.origin);
+      // url.searchParams.append('start',start);
+      // url.searchParams.append('end', end);
+
+      const url = `${window.location.origin}/api/gallery?start=${start}&end=${end}`;
+      console.log(url.toString());
+
+
+      const response = await axios.get(url.toString());
+      console.log('%cresponse', 'padding: 5px; background: hotpink; color: black;', response);
+      if (response.status === 200) {
         return setPhoto(response.data);
       }
     }
-    
+
     fetchPhotoData();
-    
+
     setIsLoading(false);
 
   }, [start, end])

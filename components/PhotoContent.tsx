@@ -15,6 +15,8 @@ export const PhotoContent: FC = () => {
   const [photoDate, setPhotoDate] = useState<Dayjs | null>(dayjs());
   const { isLoading, photo } = useFetchPhoto(formatDate(photoDate));
 
+  console.log('%cphoto on front', 'padding: 5px; background: DarkGreen; color: MediumSpringGreen;', photo);
+
   if (!photo) {
     return <Loader />
   }
