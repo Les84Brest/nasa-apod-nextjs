@@ -11,3 +11,5 @@ export async function GET(req: Request): Promise<NextResponse> {
     return NextResponse.json(imageForDate);
 
 }
+
+export const dynamic = 'force-static'
