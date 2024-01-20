@@ -10,6 +10,6 @@ export async function GET(req: Request): Promise<NextResponse> {
         const imageForDate = await getApodImage(photoDate);
         return NextResponse.json(imageForDate);
     } catch (error) {
-        return NextResponse.json({ error })
+        return NextResponse.json({ error: "Something happened while download images" })
     }
 }

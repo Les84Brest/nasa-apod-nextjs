@@ -11,6 +11,6 @@ export async function GET(req: Request): Promise<NextResponse> {
         const galleryImages = await getApodImagesForPeriod(startDate, endDate);
         return NextResponse.json(galleryImages);
     } catch (error) {
-        return NextResponse.json({ error })
+        return NextResponse.json({ error: "Something happened while download images" })
     }
 }
