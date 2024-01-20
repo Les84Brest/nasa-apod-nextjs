@@ -16,12 +16,14 @@ export default function useFetchPhoto(photoDate: string = ''): FetchPhotoReturn 
   useEffect(() => {    
     const fetchPhotoData = async (photoDate: string) => {
       setIsLoading(true);
-      const response = await axios.get(`${window.location.href}/api/image`);
+
+      const url = photoDate ? `${window.location.href}/api/image?photoDate=${photoDate}` : `${window.location.href}/api/image`;
+      const response = await axios.get(url);
       if (response.status === 200 ){        
         return setPhoto(response.data);
       }
     }
-    
+
     fetchPhotoData(photoDate);
     
     setIsLoading(false);

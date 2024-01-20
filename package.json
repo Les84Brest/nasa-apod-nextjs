@@ -9,8 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material-nextjs": "^5.15.5",
+    "@mui/x-date-pickers": "^6.19.0",
     "axios": "^1.6.5",
+    "dayjs": "^1.11.10",
     "next": "14.0.4",
+    "nextjs-current-url": "^1.0.3",
     "react": "^18",
     "react-dom": "^18"
   },
